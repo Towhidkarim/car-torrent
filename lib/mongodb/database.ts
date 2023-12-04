@@ -1,6 +1,6 @@
 import { connect, Types } from 'mongoose';
-import { CarData } from '../types';
-import { Cars } from './dbmodels';
+import { CarData, UserType } from '../types';
+import { Cars, Users } from './dbmodels';
 
 const connectMongoDB = async () => {
   try {
@@ -50,4 +50,22 @@ export async function getCarById(id: string) {
     console.log(error);
     return null;
   }
+}
+export async function getCarsOnDiscount() {
+  await connectMongoDB();
+  try {
+    const data: CarData[] = await Cars.find({
+      actualRent: { $ne: undefined },
+    }).lean();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
+
+export async function getUserDetail(email: string) {
+  await connectMongoDB();
+  const user: UserType | null = await Users.findOne({ email }, { password: 0 });
+  return user;
 }

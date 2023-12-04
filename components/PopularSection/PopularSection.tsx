@@ -47,7 +47,7 @@ const PopularSection = async () => {
       </div>
       <LinkButton
         className='px-6 py-5 mx-auto my-12 text-base'
-        href={'#'}
+        href={'/allcars'}
         variant='default'
       >
         Show More Cars

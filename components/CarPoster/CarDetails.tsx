@@ -11,16 +11,19 @@ import Rating from '../ui/rating';
 import FavoriteButton from '../CarCard/favoriteButton';
 import RentButton from './rentbutton';
 
-const CarDetails = ({
-  carName,
-  description,
-  category,
-  steeringMode,
-  gasoline,
-  capacity,
-  currentRent,
-  actualRent,
-}: CarData) => {
+const CarDetails = (props: CarData) => {
+  const {
+    _id,
+    imageUrl,
+    carName,
+    description,
+    category,
+    steeringMode,
+    gasoline,
+    capacity,
+    currentRent,
+    actualRent,
+  } = props;
   const carTagClass = 'flex items-center justify-between';
   const carTagName = 'text-muted-foreground';
   const carTagValue = 'font-bold text-muted-foreground text-right';
@@ -76,7 +79,7 @@ const CarDetails = ({
               </div>
             )}
           </div>
-          <RentButton />
+          <RentButton {...props} _id={_id?.toString()} />
         </div>
       </CardFooter>
     </Card>

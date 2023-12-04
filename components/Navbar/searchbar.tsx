@@ -7,8 +7,9 @@ import { CarData } from '@/lib/types';
 import carImg from '@/Assets/image 7.png';
 import Image from 'next/image';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
-const Searchbar = () => {
+const Searchbar = ({ className }: { className?: string }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const [searchData, setSeachData] = useState<CarData[]>([]);
@@ -36,7 +37,12 @@ const Searchbar = () => {
   }, [searchQuery]);
 
   return (
-    <label className='relative flex flex-row items-center justify-center w-full gap-0 group'>
+    <label
+      className={cn(
+        'relative flex flex-row items-center justify-center w-full gap-0 group',
+        className
+      )}
+    >
       <Input
         type='text'
         className='rounded-3xl '

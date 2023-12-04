@@ -14,6 +14,7 @@ export type CarData = {
   capacity: number;
   currentRent: number;
   actualRent?: number;
+  imageUrl?: string;
 };
 
 export type UserType = {
@@ -21,5 +22,12 @@ export type UserType = {
   username: string;
   email: string;
   password: string;
-  favorites?: string[] | null;
+  favorites?: string[];
+  rentals?: RentDataType[];
+};
+
+export type RentDataType = {
+  carId: string;
+  rentStartingDate: Date;
+  rentEndingDate: Date;
 };

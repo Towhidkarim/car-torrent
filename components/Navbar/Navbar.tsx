@@ -11,15 +11,15 @@ const Navbar = async () => {
 
   return (
     <div className='w-full bg-white'>
-      <nav className='container flex justify-between w-full py-2 mx-auto'>
-        <div className='flex items-center justify-between gap-20 md:w-2/5'>
+      <nav className='flex h-[60px] justify-between w-full px-5 py-2 mx-auto lg:px-10 '>
+        <div className='flex items-center justify-between gap-20 '>
           <Link href={'/'}>
-            <h1 className='text-3xl font-bold capitalize text-primary'>
+            <h1 className='w-1/2 text-3xl font-bold capitalize text-primary'>
               CarTorrent
             </h1>
           </Link>
-          <Searchbar />
         </div>
+        <Searchbar className='hidden w-2/5 max-w-md md:flex' />
         <div className='flex h-full gap-4 text-lg'>
           <LinkButton
             href='/allcars'
