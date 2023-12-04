@@ -4,7 +4,6 @@ import { redirect } from 'next/navigation';
 import avatar from '@/Assets/avatar.webp';
 import React, { use } from 'react';
 import Image from 'next/image';
-import SideMenu from '@/components/Dashboard/SideMenu';
 import MainFeed from '@/components/Dashboard/MainFeed';
 import DashboardContents from '@/components/Dashboard/DashboardContents';
 import { MdDashboard } from 'react-icons/md';
