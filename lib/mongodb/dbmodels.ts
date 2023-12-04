@@ -5,7 +5,7 @@ const carSchema = new Schema<CarData>({
   carName: { type: String, required: true },
   category: { type: String, required: true },
   description: { type: String, required: false },
-  carId: { type: Number, required: true },
+  carId: { type: Number, required: false },
   currentRent: { type: Number, required: true },
   actualRent: { type: Number, required: false },
   capacity: { type: Number, required: true },

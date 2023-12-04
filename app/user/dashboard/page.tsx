@@ -19,6 +19,7 @@ import { UserType } from '@/lib/types';
 import Favorites from '@/components/Dashboard/Favorites';
 import Profile from '@/components/Dashboard/Profile';
 import Support from '@/components/Dashboard/Support';
+import AddPage from '@/components/Dashboard/AddPage';
 
 const Dashboard = async () => {
   const session = await getServerSession();
@@ -45,7 +46,7 @@ const Dashboard = async () => {
       <main className='h-[100dvh] overflow-hidden flex flex-col'>
         <Navbar />
         <hr className='m-2 bg-muted-foreground' />
-        <DashboardContents session={session}>
+        <DashboardContents session={session} admin={user.admin || false}>
           {menuOptions.map((item, index) => (
             <TabsContent
               className='h-full mx-8 transition-all'
@@ -64,6 +65,13 @@ const Dashboard = async () => {
               {item.content}
             </TabsContent>
           ))}
+          <TabsContent
+            className='h-full mx-8 transition-all'
+            key={22}
+            value='AddCars'
+          >
+            <AddPage />
+          </TabsContent>
         </DashboardContents>
         {/* <div className='flex flex-row items-start h-full justify-stretch'> */}
         {/* <SideMenu session={session} /> */}

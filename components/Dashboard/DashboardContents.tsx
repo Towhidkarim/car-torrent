@@ -2,7 +2,7 @@
 import { MdVerified, MdDashboard, MdContactSupport } from 'react-icons/md';
 import { FaSearch, FaCar, FaBell, FaHeart } from 'react-icons/fa';
 import { IoStatsChart, IoLogOut } from 'react-icons/io5';
-import { IoMdSettings } from 'react-icons/io';
+import { IoMdAddCircle, IoMdSettings } from 'react-icons/io';
 import { FaUser } from 'react-icons/fa';
 import Link from 'next/link';
 import avatar from '@/Assets/avatar.webp';
@@ -37,9 +37,11 @@ const menuSecondaryOptions = [
 const DashboardContents = ({
   session,
   children,
+  admin,
 }: {
   session: Session;
   children: React.ReactNode;
+  admin: boolean;
 }) => {
   const router = useRouter();
   return (
@@ -69,6 +71,23 @@ const DashboardContents = ({
               </Button>
             </TabsTrigger>
           ))}
+          {true ? (
+            <TabsTrigger value='AddCars' key={22} asChild>
+              <Button
+                variant='ghost'
+                className='justify-start rounded-xl w-[95%] py-6 mx-auto my-1 font-semibold text-muted-foreground hover:bg-primary hover:text-primary-foreground'
+              >
+                <li key={22} className='flex items-center gap-8 text-base'>
+                  <span className='ml-8 text-xl'>
+                    <IoMdAddCircle />
+                  </span>
+                  Add Cars
+                </li>
+              </Button>
+            </TabsTrigger>
+          ) : (
+            admin
+          )}
           <Separator className='my-4 w-[90%] mx-auto' />
           {menuSecondaryOptions.map((item, index) => (
             <TabsTrigger key={index} value={item.title} asChild>
